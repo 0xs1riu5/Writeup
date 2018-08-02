@@ -37,8 +37,7 @@ show variables like '%plugin%';
 ![](luffy1.png)
 
 
-然后利用mysql将so文件转化成16进制文本
-比如
+mysql的文件导出目录被写死了
 
 ```
 show variables like "%secure%";
