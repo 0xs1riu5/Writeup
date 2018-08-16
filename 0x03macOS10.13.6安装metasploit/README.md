@@ -14,7 +14,7 @@ brew install docker-compose
 
 ```
 
-![](README/luffy1.png)
+![](luffy1.png)
 
 编排postgres
 
@@ -92,4 +92,4 @@ ln -s /usr/local/share/metasploit-framework/msf* /usr/local/bin/
 ```
 
 
-![](README/luffy2.png)
+![](luffy2.png)
