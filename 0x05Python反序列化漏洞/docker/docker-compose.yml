@@ -1,0 +1,25 @@
+version: '2'
+services:
+
+  python2-app1:
+    build: ./web1
+    image: s1riu5/pickle:1.0
+    restart: always
+    ports:
+        - 80:80
+
+  python2-app2:
+    build: ./web2
+    image: s1riu5/pickle:2.0
+    restart: always
+    ports:
+        - 81:80
+
+  python2-app3:
+    build: ./web3
+    image: s1riu5/pickle:3.0
+    restart: always
+    ports:
+        - 82:80
+        - 6379:6379
+
