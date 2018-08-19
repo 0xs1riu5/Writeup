@@ -31,7 +31,7 @@ airbase-ng --essid=AIRPORT-FREE-WIFI -P -C 30 -v wlan0mon
 ![](README/luffy2.png)
 
 
-编辑_etc_dhcp/dhcpd.conf,最后添加
+编辑/etc/dhcp/dhcpd.conf,最后添加
 ```
 authoritative;
 
@@ -60,9 +60,9 @@ dhcpd -cf /etc/dhcp/dhcpd.conf -pf /var/run/dhcpd.pid at0
 
 
 ## 0x02  配置dns服务器
-dns服务由dnsmasq提供，这边需要编辑_etc_dnsmasq.conf的文件
+dns服务由dnsmasq提供，这边需要编辑/etc/dnsmasq.conf的文件
 
-1. 取消 resolv-file=_etc_resolv.dnsmasq.conf的注释，表示dnsmasq 会从这个指定的文件中寻找上游dns服务器。同时取消 strict-order 前面的注册#号。
+1. 取消 resolv-file=/etc/dnsmasq.resolv.conf的注释，表示dnsmasq 会从这个指定的文件中寻找上游dns服务器。同时取消 strict-order 前面的注册#号。
 ```
     44  # Change this line if you want dns to get its upstream servers from
     45  # somewhere other that /etc/resolv.conf
