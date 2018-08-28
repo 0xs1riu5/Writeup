@@ -1,0 +1,156 @@
+RewriteEngine on
+#RewriteCond %{HTTP_HOST} ^[a-z0-9\-]+\.zzcms\.net$
+#RewriteCond %{HTTP_HOST} !^(www|bbs)\.zzcms\.net$
+#RewriteRule ^/?$ /%{HTTP_HOST}
+#RewriteRule ^/([a-z0-9\-]+)\.zzcms\.net/?$ /zt/show.php?editor=$1
+#RewriteRule ^/([a-z0-9\-]+)\.yyrxx\.com/?$ /area/show.php?province=$1
+
+RewriteRule default.htm$ /zt/show.php
+RewriteRule ^index.htm$ /index.php
+
+RewriteRule ^(.*)/index.htm$ $1/index.php
+RewriteRule zs/order.htm$ /zs/order.php
+
+RewriteRule area/([0-9,a-z]*).htm$ area/show.php?province=$1
+#以下是排除的目录
+RewriteCond $1 !^(zs|dl|zh|zx|company|user|admin|phpMyAdmin|ebak2008|install)
+#RewriteRule ^([a-z0-9A-Z_\-]+)(/)?$ area/show.php?province=$1
+
+RewriteRule ^zsclass/([0-9,a-z]*).htm$ /zsclass/class.php?b=$1
+RewriteRule ^zsclass/([0-9,a-z]*)$ /zsclass/zsclass.php?b=$1
+RewriteRule ^zsclass/([0-9,a-z]*)/(\d*).htm$ /zsclass/zsclass.php?b=$1&page=$2
+
+RewriteRule ^zs/zs.htm$ zs/zs.php
+RewriteRule ^zs/(\d*).htm$ zs/zs.php?page=$1
+
+RewriteRule ^(.*)/$ $1/index.php
+#如zs/ 转到zs/index.php 需放到上面，否则会应用下面的这一条
+RewriteRule ^zs/([0-9,a-z]*)$ zs/zs.php?b=$1
+
+#招商属性参数单独写出，用在导航条上
+RewriteRule zs/sx-([0-9,a-z]*).htm$ zs/zs_list.php?sx=$1
+
+RewriteRule zs/([0-9,a-z]*)/(\d*).htm$ zs/zs.php?b=$1&page=$2
+RewriteRule zs/([0-9,a-z]*)/([0-9,a-z]*)$ zs/zs.php?b=$1&s=$2
+RewriteRule zs/([0-9,a-z]*)/([0-9,a-z]*)/(\d*).htm$ zs/zs.php?b=$1&s=$2&page=$3
+RewriteRule zs/show-(\d*).htm$ zs/show.php?id=$1
+RewriteRule sell/zsshow-(\d*).htm$ zt/zsshow.php?cpid=$1
+
+#虚拟目录系统不会自动加/，这样在打开展示页是会回到根目录下，导致链接错，所以展厅导航的虚拟目录后都加了/
+RewriteRule sell$ zt/zs.php
+RewriteRule sell/zs-(\d*).htm$ zt/zs.php?id=$1
+RewriteRule sell/zs-(\d*)-([0-9,a-z,A-Z]*).htm$ zt/zs.php?id=$1&bigclass=$2
+RewriteRule sell/zs-(\d*)-([0-9,a-z,A-Z]*)-([0-9,a-z,A-Z]*).htm$ zt/zs.php?id=$1&bigclass=$2&smallclass=$3
+RewriteRule sell/zs-(\d*)-([0-9,a-z,A-Z]*)-([0-9,a-z,A-Z]*)-(\d*).htm$ zt/zs.php?id=$1&bigclass=$2&smallclass=$3&page=$4
+
+RewriteRule dl/dl.htm$ dl/dl.php
+RewriteRule dl/(\d*).htm$ dl/dl.php?page=$1
+RewriteRule dl/([0-9,a-z]*)$ dl/dl.php?b=$1
+RewriteRule dl/([0-9,a-z]*)/(\d*).htm$ dl/dl.php?b=$1&page=$2
+RewriteRule dl/show-(\d*).htm$ dl/show.php?id=$1
+
+RewriteRule baojia/baojia.htm$ baojia/baojia.php
+RewriteRule baojia/(\d*).htm$ baojia/baojia.php?page=$1
+RewriteRule baojia/([0-9,a-z]*)$ baojia/baojia.php?b=$1
+RewriteRule baojia/([0-9,a-z]*)/(\d*).htm$ baojia/baojia.php?b=$1&page=$2
+RewriteRule baojia/show-(\d*).htm$ baojia/show.php?id=$1
+
+RewriteRule pp/pp.htm$ pp/pp.php
+RewriteRule pp/(\d*).htm$ pp/pp.php?page=$1
+RewriteRule pp/([0-9,a-z]*)$ pp/pp.php?b=$1
+RewriteRule pp/([0-9,a-z]*)/(\d*).htm$ pp/pp.php?b=$1&page=$2
+RewriteRule pp/([0-9,a-z]*)/([0-9,a-z]*)$ pp/pp.php?b=$1&s=$2
+RewriteRule pp/([0-9,a-z]*)/([0-9,a-z]*)/(\d*).htm$ pp/pp.php?b=$1&s=$2&page=$3
+RewriteRule pp/show-(\d*).htm$ pp/show.php?id=$1
+
+RewriteRule brand$ zt/pp.php
+RewriteRule brand/pp-(\d*).htm$ zt/pp.php?id=$1
+RewriteRule brand/pp-(\d*)-(\d*).htm$ zt/pp.php?id=$1&page=$2
+RewriteRule brand/ppshow-(\d*).htm$ zt/ppshow.php?cpid=$1
+
+RewriteRule job/job.htm$ job/job.php
+RewriteRule job/(\d*).htm$ job/job.php?page=$1
+RewriteRule job/([0-9,a-z]*)$ job/job.php?b=$1
+RewriteRule job/([0-9,a-z]*)/(\d*).htm$ job/job.php?b=$1&page=$2
+RewriteRule job/([0-9,a-z]*)/([0-9,a-z]*)$ job/job.php?b=$1&s=$2
+RewriteRule job/([0-9,a-z]*)/([0-9,a-z]*)/(\d*).htm$ job/job.php?b=$1&s=$2&page=$3
+RewriteRule job/show-(\d*).htm$ job/show.php?id=$1
+
+RewriteRule jobs$ zt/job.php
+RewriteRule jobs/job-(\d*).htm$ zt/job.php?id=$1
+RewriteRule jobs/job-(\d*)-(\d*).htm$ zt/job.php?id=$1&page=$2
+RewriteRule jobs/jobshow-(\d*).htm$ zt/jobshow.php?cpid=$1
+
+RewriteRule company/company.htm$ company/company.php 
+RewriteRule company/(\d*).htm$ company/company.php?page=$1 
+RewriteRule company/([0-9,a-z]*)$ company/company.php?b=$1 
+RewriteRule company/([0-9,a-z]*)/(\d*).htm$ company/company.php?b=$1&page=$2 
+RewriteRule company/([0-9,a-z]*)/([0-9,a-z]*)$ company/company.php?b=$1&s=$2
+RewriteRule company/([0-9,a-z]*)/([0-9,a-z]*)/(\d*).htm$ company/company.php?b=$1&s=$2&page=$3
+
+RewriteRule introduce$ zt/companyshow.php
+RewriteRule introduce/companyshow-(\d*).htm$ zt/companyshow.php?id=$1 
+
+RewriteRule contact$ zt/contact.php?id=$1 
+RewriteRule contact/contact-(\d*).htm$ zt/contact.php?id=$1 
+
+RewriteRule zh/zh.htm$ zh/zh.php 
+RewriteRule zh/(\d*).htm$ zh/zh.php?page=$1 
+RewriteRule zh/([0-9,a-z]*)$ zh/zh.php?b=$1 
+RewriteRule zh/([0-9,a-z]*)/(\d*).htm$ zh/zh.php?b=$1&page=$2 
+RewriteRule zh/show-(\d*).htm$ zh/show.php?id=$1 
+
+RewriteRule wangkan/wangkan.htm$ wangkan/wangkan.php 
+RewriteRule wangkan/(\d*).htm$ wangkan/wangkan.php?page=$1 
+RewriteRule wangkan/([0-9,a-z]*)$ wangkan/wangkan.php?b=$1 
+RewriteRule wangkan/([0-9,a-z]*)/(\d*).htm$ wangkan/wangkan.php?b=$1&page=$2 
+RewriteRule wangkan/show-(\d*).htm$ wangkan/show.php?id=$1 
+
+RewriteRule ask/ask.htm$ ask/ask.php 
+RewriteRule ask/(\d*).htm$ ask/ask.php?page=$1 
+RewriteRule ask/([0-9,a-z]*)$ ask/ask.php?b=$1 
+RewriteRule ask/([0-9,a-z]*)/(\d*).htm$ ask/ask.php?b=$1&page=$2 
+RewriteRule ask/show-(\d*).htm$ ask/show.php?id=$1 
+
+RewriteRule zx/zx.htm$ zx/zx.php 
+RewriteRule zx/(\d*).htm$ zx/zx.php?page=$1 
+RewriteRule zx/(\d*)$ zx/zx.php?b=$1 
+RewriteRule zx/class/(\d*)$ zx/class.php?b=$1 
+RewriteRule zx/([0-9,a-z]*)/(\d*).htm$ zx/zx.php?b=$1&page=$2 
+RewriteRule zx/(\d*)/(\d*)$ zx/zx.php?b=$1&s=$2 
+RewriteRule zx/([0-9,a-z]*)/([0-9,a-z]*)/(\d*).htm$ zx/zx.php?b=$1&s=$2&page=$3 
+RewriteRule zx/show-(\d*).htm$ zx/show.php?id=$1 
+RewriteRule zx/show-(\d*)-(\d*).htm$ zx/show.php?id=$1&page=$2
+
+RewriteRule special/special.htm$ special/special.php 
+RewriteRule special/(\d*).htm$ special/special.php?page=$1 
+RewriteRule special/([0-9,a-z]*)$ special/special.php?b=$1 
+RewriteRule special/class/(\d*)$ special/class.php?b=$1 
+RewriteRule special/([0-9,a-z]*)/(\d*).htm$ special/special.php?b=$1&page=$2 
+RewriteRule special/([0-9,a-z]*)/([0-9,a-z]*)$ special/special.php?b=$1&s=$2 
+RewriteRule special/([0-9,a-z]*)/([0-9,a-z]*)/(\d*).htm$ special/special.php?b=$1&s=$2&page=$3 
+RewriteRule special/show-(\d*).htm$ special/show.php?id=$1 
+RewriteRule special/show-(\d*)-(\d*).htm$ special/show.php?id=$1&page=$2 
+
+RewriteRule licence$ zt/licence.php
+RewriteRule licence/licence-([0-9,a-z]*).htm$ zt/licence.php?id=$1 
+
+RewriteRule guestbook$ zt/liuyan.php
+RewriteRule guestbook/liuyan-([0-9,a-z]*).htm$ zt/liuyan.php?id=$1 
+
+RewriteRule zt/show.htm$ zt/show.php
+RewriteRule zt/show-(\d*).htm$ zt/show.php?id=$1 
+
+RewriteRule news$ zt/news.php 
+RewriteRule news/$ zt/news.php 
+RewriteRule news/news-(\d*).htm$ zt/news.php?id=$1 
+RewriteRule news/news-(\d*)-(\d*).htm$ zt/news.php?id=$1&page=$2
+RewriteRule news/newsshow-(\d*).htm$ zt/newsshow.php?newsid=$1
+
+RewriteRule help.htm$ one/help.php 
+RewriteRule link.htm$ one/link.php 
+RewriteRule sitemap.htm$ one/sitemap.php
+RewriteRule siteinfo-(\d*).htm$ one/siteinfo.php?id=$1  
+
+RewriteRule reg/userreg.htm$ reg/userreg.php 
+RewriteRule user/login.htm$ user/login.php 
