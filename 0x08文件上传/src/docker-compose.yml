@@ -1,0 +1,39 @@
+version: '2'
+services:
+
+  php-app1:
+    build: ./web1
+    image: s1riu5/php-web1:5.6
+    restart: always
+    ports:
+        - 81:80
+
+  php-app2:
+    build: ./web2
+    image: s1riu5/php-web2:5.6
+    restart: always
+    ports:
+        - 82:80
+
+
+  php-app3:
+    build: ./web3
+    image: s1riu5/php-web3:5.6
+    restart: always
+    ports:
+        - 83:80
+
+  php-app4:
+    build: ./web4
+    image: s1riu5/php-web4:5.6
+    restart: always
+    ports:
+        - 84:80
+
+
+  php-app5:
+    build: ./web5
+    image: s1riu5/php-web5:5.6
+    restart: always
+    ports:
+        - 85:80
