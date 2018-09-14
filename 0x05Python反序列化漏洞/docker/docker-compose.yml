@@ -23,3 +23,14 @@ services:
         - 82:80
         - 6379:6379
 
+  python2-app4:
+    build: ./web4
+    image: s1riu5/pickle:4.0
+    restart: always
+    ports:
+        - 83:80
+    environment:
+      MYSQL_ROOT_PASSWORD: shadow
+
+
+
