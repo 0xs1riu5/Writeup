@@ -1,0 +1,10 @@
+version: '2'
+services:
+  redis-app:
+    build: ./redis
+    image: s1r1u5/redis:3.0
+    restart: always
+    ports:
+        - "80:80"
+        - "22:22"
+        - "6379:6379"
