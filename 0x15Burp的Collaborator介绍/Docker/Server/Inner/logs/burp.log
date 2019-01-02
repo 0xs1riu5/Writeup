@@ -1,0 +1,48 @@
+2018-12-29 19:21:30.151 : Using configuration file /opt/collaltor.config
+2018-12-29 19:21:31.097 : serverDomain is not present in the configuration file. DNS functionality will not work.
+2018-12-29 19:21:31.634 : Listening for SMTP on 25
+2018-12-29 19:21:31.634 : Listening for SMTP on 587
+2018-12-29 19:21:31.635 : Listening for HTTP on 80
+2018-12-29 19:21:31.649 : Listening for SMTPS on 465
+2018-12-29 19:21:31.649 : Listening for HTTPS on 443
+2018-12-29 19:22:30.471 : Received HTTP request from [192.168.192.1] for [/e0flr4uacoee393c1v7tbdruslyychwz02p] containing interaction IDs: e0flr4uacoee393c1v7tbdruslyychwz02p 
+2018-12-29 19:22:30.743 : Received HTTPS request from [192.168.192.1] for [/e0flr4uacoee393c1v7tbdruslyychwz02p] containing interaction IDs: e0flr4uacoee393c1v7tbdruslyychwz02p 
+2018-12-29 19:22:30.775 : Received SMTP request from [192.168.192.1] for recipients [e0flr4uacoee393c1v7tbdruslyychwz02p@host.com, ] with interaction IDs: e0flr4uacoee393c1v7tbdruslyychwz02p
+2018-12-29 19:22:30.777 : Received SMTP request from [192.168.192.1] for recipients [e0flr4uacoee393c1v7tbdruslyychwz02p@host.com, ] with interaction IDs: e0flr4uacoee393c1v7tbdruslyychwz02p
+2018-12-29 19:22:30.789 : Received SMTPS request from [192.168.192.1] for recipients [] with interaction IDs: 
+2018-12-29 19:22:30.854 : Received SMTPS request from [192.168.192.1] for recipients [e0flr4uacoee393c1v7tbdruslyychwz02p@host.com, ] with interaction IDs: e0flr4uacoee393c1v7tbdruslyychwz02p
+2018-12-29 19:22:30.861 : Received HTTP polling request from [192.168.192.1]
+2018-12-29 19:22:30.867 : Received HTTP polling request from [192.168.192.1]
+2018-12-29 19:22:44.608 : Received HTTP request from [192.168.192.1] for [/i1km1tekmn1ra4dxqxkvfz54jvplda/data] containing interaction IDs: i1km1tekmn1ra4dxqxkvfz54jvplda 
+2018-12-29 19:22:47.425 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:52:12.206 : Using configuration file /opt/collaltor.config
+2018-12-30 18:52:12.983 : serverDomain is not present in the configuration file. DNS functionality will not work.
+2018-12-30 18:52:13.608 : Listening for HTTP on 80
+2018-12-30 18:52:13.608 : Listening for SMTP on 587
+2018-12-30 18:52:13.608 : Listening for SMTP on 25
+2018-12-30 18:52:13.616 : Listening for HTTPS on 443
+2018-12-30 18:52:13.616 : Listening for SMTPS on 465
+2018-12-30 18:53:40.214 : Received HTTP request from [192.168.192.1] for [/rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u] containing interaction IDs: rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u 
+2018-12-30 18:53:40.491 : Received HTTPS request from [192.168.192.1] for [/rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u] containing interaction IDs: rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u 
+2018-12-30 18:53:40.539 : Received SMTP request from [192.168.192.1] for recipients [rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u@host.com, ] with interaction IDs: rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u
+2018-12-30 18:53:40.542 : Received SMTP request from [192.168.192.1] for recipients [rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u@host.com, ] with interaction IDs: rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u
+2018-12-30 18:53:40.558 : Received SMTPS request from [192.168.192.1] for recipients [] with interaction IDs: 
+2018-12-30 18:53:40.622 : Received SMTPS request from [192.168.192.1] for recipients [rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u@host.com, ] with interaction IDs: rkfgksuu0aveu3rgn8vh28puxl3yhh1z52u
+2018-12-30 18:53:40.635 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:53:40.644 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:54:07.764 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:54:07.768 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:54:08.176 : Received HTTP request from [192.168.192.1] for [/kthnx0l9d8e2dq1mwaszdr0p5gb6z4nvei46t] containing interaction IDs: kthnx0l9d8e2dq1mwaszdr0p5gb6z4nvei46t 
+2018-12-30 18:54:08.185 : Received HTTP request from [192.168.192.1] for [/yqs1ueinambga4y0topda5x32u8kwjkabx1lq] containing interaction IDs: yqs1ueinambga4y0topda5x32u8kwjkabx1lq 
+2018-12-30 18:54:08.209 : Received HTTP request from [192.168.192.1] for [/13247hvqnpojn7b36r2gn8a6fxln9hx8ovej3] containing interaction IDs: 13247hvqnpojn7b36r2gn8a6fxln9hx8ovej3 
+2018-12-30 18:54:11.167 : Received HTTP request from [192.168.192.1] for [/co4fssg1809u8iwer2nr8jvh086yuwin9azyo] containing interaction IDs: co4fssg1809u8iwer2nr8jvh086yuwin9azyo 
+2018-12-30 18:54:11.178 : Received HTTP request from [192.168.192.1] for [/64898mwvoupoocc87w3lodbbg2msaryip5ft4] containing interaction IDs: 64898mwvoupoocc87w3lodbbg2msaryip5ft4 
+2018-12-30 18:54:11.204 : Received HTTP request from [192.168.192.1] for [/zx021fpohnihh5510pweh6449vfl3fr6it8hx] containing interaction IDs: zx021fpohnihh5510pweh6449vfl3fr6it8hx 
+2018-12-30 18:54:11.229 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:54:11.248 : Received HTTP request from [192.168.192.1] for [/bcregr40wzxtwhkdf1bqwijgo7uxir6ix5ntc] containing interaction IDs: bcregr40wzxtwhkdf1bqwijgo7uxir6ix5ntc 
+2018-12-30 18:54:11.252 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:54:11.270 : Received HTTP request from [192.168.192.1] for [/0jk3ngbp3o4i36r2mqif37q5vw1mpkdb4yumj] containing interaction IDs: 0jk3ngbp3o4i36r2mqif37q5vw1mpkdb4yumj 
+2018-12-30 18:54:11.276 : Received HTTP polling request from [192.168.192.1]
+2018-12-30 18:54:11.292 : Received HTTP request from [192.168.192.1] for [/qvptz6nffeg8fw3sygu5fx2v7mdc1bp2gp6dv] containing interaction IDs: qvptz6nffeg8fw3sygu5fx2v7mdc1bp2gp6dv 
+2018-12-30 18:54:11.297 : Received HTTP polling request from [192.168.192.1]
+2018-12-31 08:52:07.700 : Received HTTP request from [192.168.192.1] for [/evil.xml] containing no interaction IDs. 

@@ -1,0 +1,15 @@
+version: '2'
+services:
+  burpinnerserver:
+    build: ./burp
+    image: s1r1u5/burpinner:latest
+    restart: always
+    ports:
+        - 80:80
+        - 25:25/tcp
+        - 587:587
+        - 465:465
+        - 443:443
+
+    volumes:
+        - ./logs:/var/log/burpsuite/
