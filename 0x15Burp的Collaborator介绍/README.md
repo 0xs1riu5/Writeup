@@ -186,13 +186,23 @@ docker-compose up -d
 
 
 引用链接
+
 [Introducing Burp Collaborator | Blog](https://portswigger.net/blog/introducing-burp-collaborator)
+
 [Burpsuite之Burp Collaborator模块介绍 - 小小leo - 博客园](https://www.cnblogs.com/xiaoxiaoleo/p/5724947.html?utm_source=itdadao&utm_medium=referral)
+
 [Running Your Instance of Burp Collaborator Server - Fabio Pires](https://blog.fabiopires.pt/running-your-instance-of-burp-collaborator-server/)
+
 [Deploying a private Burp Collaborator server](https://portswigger.net/burp/documentation/collaborator/deploying)
+
 [Burp Collaborator资源整合 - blacksunny - 博客园](https://www.cnblogs.com/blacksunny/p/8023878.html)
+
 [DNSLog在渗透中的使用 | AdminTony's Blog](http://www.admintony.com/DNSLog%E5%9C%A8%E6%B8%97%E9%80%8F%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.html)
+
 [从 blind XXE 到读取根目录文件](https://paper.tuisec.win/detail/77e971804021874)
+
 [XXE總結 - 掃文資訊](https://hk.saowen.com/a/55b8087bf5c735d6aa7bed67999c487dbd604641d93a6c6353af2af34ce94499)
+
 [XXE总结（小部分自己的）](http://blog.leanote.com/post/xuxi/XXE%E6%80%BB%E7%BB%93)
+
 [從 blind XXE 到讀取根目錄文件 - 掃文資訊](https://tw.saowen.com/a/7ef453e1d9c1d13380d9e6b5a45794537ed9e7c248c0a957a16c096634c4f6a6)
